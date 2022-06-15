@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function UsersData() {
+    const [Data, fetchData] = useState([])
+    const getData = () => {
+        fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+        .then((res) => res.json())
+        .then((res) => {
+            fetchData(res)
+        })
+    }
+
+    useEffect(()=>{
+        getData()
+    },[])
+
+
+    return (
+        <div>
+            <main>
+                <img src={Data.url}/>
+                <h1>{Data.title}</h1>
+                <h3>{Data.copyright}</h3>
+                <p>{Data.date}</p>
+                <p>{Data.explanation}</p>
+            </main>
+            <footer>
+                <smaill>Guilherme</smaill>
+            </footer>
+        </div>
+    )
+
 }
-
-export default App;
