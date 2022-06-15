@@ -18,14 +18,23 @@ export default function UsersData() {
     return (
         <div>
             <main>
-                <img src={Data.url}/>
-                <h1>{Data.title}</h1>
-                <h3>{Data.copyright}</h3>
-                <p>{Data.date}</p>
-                <p>{Data.explanation}</p>
+                <img id="img_principal" src={Data.url}/>
+                <div id="about">
+                    <h1>{Data.title}</h1>
+                    
+                    
+                    <p>{Data.explanation}</p>
+                    <div id="copyright">
+                        <h3>{Data.copyright}</h3>
+                        <p>{Data.date}</p>
+                    </div>
+                    
+                </div>
+               
             </main>
             <footer>
-                <smaill>Guilherme</smaill>
+                <a href="https://github.com/guilherme-tavares-py" class="fa fa-github"></a>
+                <a href="https://www.linkedin.com/in/guilherme-tavares-pinheiro-21510b1b1/" class="fa fa-linkedin"></a>
             </footer>
         </div>
     )
